@@ -84,7 +84,6 @@ export function mainReducer(state = defaultState, action) {
                 } else {
                     state.todos[todoToEditIndex].editing = true
                 }
-                console.log(state.active);
             }
             return state
         case SELECT_TODO:
@@ -105,16 +104,12 @@ export function mainReducer(state = defaultState, action) {
                 input: action.add_input
             }
         case DELETE_TODO:
-            console.log(state.todo);
             const todoToDeleteIndex = state.todos.indexOf(state.todo)
-            console.log(state.todos.indexOf(state.todo));
             const newList = [...state.todos]
             newList.splice(todoToDeleteIndex, 1)
-            console.log([...state.todos].splice(todoToDeleteIndex, 1));
 
             if (todoToDeleteIndex !== -1 && state.todos.length > 1) {
                 if (state.todo.id === state.active) {
-                    console.log('aa', state.todos[0]);
                     let newId = 0
                     if (todoToDeleteIndex === 0) {
                         newId = state.todos[1].id
@@ -127,7 +122,6 @@ export function mainReducer(state = defaultState, action) {
                         active: newId
                     }
                 } else {
-                    console.log('cc');
                     return {
                         ...state,
                         todos: newList
@@ -139,10 +133,8 @@ export function mainReducer(state = defaultState, action) {
             state.todos.map(todo => {
                 if (todo.id === state.active) {
                     if (todo.task.completed) {
-                        console.log(todo.task);
                         todo.tasks[todo.tasks.indexOf(todo.task)].completed = false
                     } else {
-                        console.log(todo.task);
                         todo.tasks[todo.tasks.indexOf(todo.task)].completed = true
                     }
                     stateToreturn.push(todo)
@@ -173,13 +165,11 @@ export function mainReducer(state = defaultState, action) {
             state.todos.map(todo => {
                 if (todo.id === state.active) {
                     if (todo.task.editing) {
-                        console.log(todo.task);
                         if(todo.tasks[todo.tasks.indexOf(todo.task)].name==="") {
                             todo.tasks[todo.tasks.indexOf(todo.task)].name="[Empty]"
                         }
                         todo.tasks[todo.tasks.indexOf(todo.task)].editing = false
                     } else {
-                        console.log(todo.task);
                         todo.tasks[todo.tasks.indexOf(todo.task)].editing = true
                     }
                     stateToreturn.push(todo)

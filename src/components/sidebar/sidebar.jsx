@@ -39,13 +39,10 @@ class SideBar extends React.Component {
     handleEditInputChange = (item) => input => {
         this.props.setTodo(item)
         this.props.setTodoNameInput(input.target.value)
-
     }
     handleSelectTodo(item) {
         this.props.setTodo(item)
         this.props.selectTodo()
-
-        console.log('clicked');
     }
     toogleSidebar() {
         if (this.state.show) {

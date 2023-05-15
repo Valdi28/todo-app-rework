@@ -33,7 +33,6 @@ class Main extends React.Component {
         this.props.editTask()
     }
     handleEditInputChange = (task) => obj => {
-        console.log(task, obj.target.value);
         this.props.setTask(task)
 
         this.props.setTaskEditInput(obj.target.value)
