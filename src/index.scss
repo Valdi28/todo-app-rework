@@ -4,6 +4,7 @@
 }
 
 #sidebar-toggler {
+    border-right: 5px solid #5a5a5a;
     width: 5vw;
     max-width: 50px;
     display: flex;
@@ -35,13 +36,13 @@ hr {
 
 #page-title {
     overflow-wrap: break-word;
-    overflow: scroll;
+    overflow: hidden;
 }
 
 #sidebar {
     background-color: #c6c6c6;
     height: 100vh;
-    overflow-y: scroll;
+    overflow-y: auto;
     overflow-x: hidden;
     position: sticky;
     top: 0;
@@ -251,7 +252,9 @@ hr {
     padding: 5px;
     min-width: 0;
 }
-
+#mobile-title {
+    display: none;
+}
 .item-checkbox {
     max-width: 25px;
     min-width: 25px;
@@ -263,11 +266,22 @@ hr {
     #main-div {
         flex-direction: column;
     }
+    #mobile-title {
+        display: block;
+        color: #969696;
+        margin: 10px;
+    }
+    #page-title {
+        display: none;
+    }
     #sidebar-toggler {
         min-width: 100vw;
         position: sticky;
         border-bottom: 5px solid #5a5a5a;
-        align-items: end;
+        align-items: center;
+        flex-direction: row;
+        justify-content: space-between;
+
     }
     #sidebar-content {
         max-height: 60vh;

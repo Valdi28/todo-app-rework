@@ -6,6 +6,6 @@ export default defineConfig({
   plugins: [react()],
   server: {
     host: true
-  }
-
+  },
+  base: "/todo-monster"
 })

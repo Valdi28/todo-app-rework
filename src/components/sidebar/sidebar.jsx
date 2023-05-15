@@ -61,6 +61,7 @@ class SideBar extends React.Component {
         return (
             <div id="sidebar">
                 <div id="sidebar-toggler">
+                    <h2 id="mobile-title">ToDo Monster</h2>
                     <button onClick={this.toogleSidebar} id="show-hide-btn"><FontAwesomeIcon icon={faSitemap}/></button>
                 </div>
                 {this.state.show ? <div id="sidebar-content">
