@@ -3,13 +3,30 @@
     padding: 0;
 }
 
+#sidebar-toggler {
+    width: 5vw;
+    max-width: 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+#sidebar-toggler>button {
+    font-size: 2em;
+    padding: 5px;
+}
+
+hr {
+    margin-left: 5px
+}
+
 #main-div {
-    display: grid;
-    grid-template-columns: repeat(10, 1fr);
+    justify-content: space-between;
+    display: flex;
 }
 
 #page-title {
     overflow-wrap: break-word;
+    overflow: scroll;
 }
 
 #sidebar {
@@ -19,9 +36,11 @@
     overflow-x: hidden;
     position: sticky;
     top: 0;
-    min-width: 25vw;
-    max-width: 25vw;
     overflow-wrap: break-word;
+    display: flex;
+    min-width: 0;
+    flex: 1 0 1;
+    max-width: 25vw;
 }
 
 #add-todo-form {
@@ -29,18 +48,19 @@
     justify-content: center;
     margin: 10px;
     gap: 10px;
-
+    
 }
 
 #add-todo-form-input,
 #add-todo-form-btn {
     border-radius: 10px;
     border: none;
+    
 }
 
 #add-todo-form-input {
     padding: 2px 5px;
-
+    min-width: 0;
     height: 30px;
     width: 50%;
 }
@@ -51,6 +71,7 @@
 
 #add-todo-form-btn {
     width: 20%;
+    min-width: 0;
 }
 
 .todo-active {
@@ -74,13 +95,9 @@
     flex: 5 0 0;
 }
 
-.todo-input {
-    min-width: 10px;
-}
-
 .todo-text {
-    min-width: 0;
-    overflow-wrap: break-word;
+    min-width: 10px;
+    overflow-wrap: anywhere;
 }
 
 .todo-delete,
@@ -113,7 +130,7 @@
     display: flex;
     flex-direction: column;
     padding: 20px;
-
+    flex-wrap: wrap;
     gap: 10px;
 }
 
@@ -126,13 +143,11 @@
     text-align: center;
     grid-column: 2/11;
     overflow: hidden;
+    flex: 1 1 0;
 }
 
 #main-title {
-    flex-grow: 1;
     overflow-wrap: break-word;
-    width: 80%;
-    display: block;
     margin: 0 auto;
 }
 
@@ -150,6 +165,7 @@
     border-radius: 5px;
     border: 1px solid #000;
     padding: 10px;
+    min-width: 0;
 }
 
 #add-task-btn {
@@ -162,19 +178,21 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
+    width: 100px;
+}
+
+.todo-input {
+    width: 80%;
 }
 
 .item {
-    flex-wrap: wrap;
-    flex-wrap: wrap;
     background-color: #c0c0c0;
     margin: 0 10px;
     display: flex;
+    align-items: center;
     padding: 10px;
     border-radius: 10px;
     gap: 10px;
-    justify-content: center;
-    align-items: center;
 }
 
 .item-checkbox,
@@ -212,12 +230,13 @@
 }
 
 .item-text {
-    min-width: 100px;
+    width: 10px;
     overflow-wrap: break-word;
 }
 
 .item-input {
     padding: 5px;
+    min-width: 0;
 }
 
 .item-checkbox {
