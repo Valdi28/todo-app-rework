@@ -17,7 +17,7 @@ class SideBar extends React.Component {
         this.handleSelectTodo = this.handleSelectTodo.bind(this)
         this.toogleSidebar = this.toogleSidebar.bind(this)
         this.state = {
-            show: true
+            show: false
         }
     }
     handleAddInputChange(input) {
@@ -63,7 +63,6 @@ class SideBar extends React.Component {
                 <div id="sidebar-toggler">
                     <button onClick={this.toogleSidebar} id="show-hide-btn"><FontAwesomeIcon icon={faSitemap}/></button>
                 </div>
-                <hr />
                 {this.state.show ? <div id="sidebar-content">
                     <h1 id="page-title">ToDo Monster</h1>
                     <div id="add-todo-form">
@@ -82,7 +81,7 @@ class SideBar extends React.Component {
                             )
                         })}
                     </div>
-                </div> : undefined}
+                </div> : <div></div>}
             </div>
         )
     }
