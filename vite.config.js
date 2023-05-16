@@ -5,7 +5,7 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   server: {
-    host: true
+    host: true // change it to false if you don't want to run the app in your network
   },
   base: "/todo-monster"
 })
