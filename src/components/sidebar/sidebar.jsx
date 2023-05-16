@@ -16,6 +16,8 @@ class SideBar extends React.Component {
         this.handleAddInputChange = this.handleAddInputChange.bind(this)
         this.handleSelectTodo = this.handleSelectTodo.bind(this)
         this.toogleSidebar = this.toogleSidebar.bind(this)
+        this.handlehortcuts = this.handleShortcuts.bind(this)
+        this.handleTodoInputKeybinds = this.handleTodoInputKeybinds.bind(this)
         this.state = {
             show: false
         }
@@ -50,11 +52,26 @@ class SideBar extends React.Component {
                 ...this.state,
                 show: false
             })
-        } else if (!this.state.show) {
+        } else {
             this.setState({
                 ...this.state,
                 show: true
             })
+        }
+    }
+    handleShortcuts(element) {
+        element.addEventListener("keydown", (event) => {
+            if (event.ctrlKey && event.key === "e") {
+                this.toogleSidebar()
+            }
+        })
+    }
+    componentDidMount() {
+        this.handleShortcuts(window)
+    }
+    handleTodoInputKeybinds(event) {
+        if(event.keyCode===13) {
+            this.addTodo(event.target.value)
         }
     }
     render() {
@@ -62,12 +79,12 @@ class SideBar extends React.Component {
             <div id="sidebar">
                 <div id="sidebar-toggler">
                     <h2 id="mobile-title">ToDo Monster</h2>
-                    <button onClick={this.toogleSidebar} id="show-hide-btn"><FontAwesomeIcon icon={faSitemap}/></button>
+                    <button onClick={this.toogleSidebar} id="show-hide-btn"><FontAwesomeIcon icon={faSitemap} /></button>
                 </div>
                 {this.state.show ? <div id="sidebar-content">
                     <h1 id="page-title">ToDo Monster</h1>
                     <div id="add-todo-form">
-                        <input id="add-todo-form-input" type="text" value={this.props.main.input} onChange={this.handleAddInputChange} />
+                        <input onKeyDown={this.handleTodoInputKeybinds} id="add-todo-form-input" type="text" value={this.props.main.input} onChange={this.handleAddInputChange} />
                         <button id="add-todo-form-btn" onClick={this.addTodo}>Add</button>
                     </div>
                     <div id="todos-container">
